@@ -1,0 +1,30 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@using Umbraco.Cms.Core.Models.PublishedContent;
+@{
+	var selection = Umbraco.Content(Guid.Parse("f0723956-45ba-4e26-9181-6fb7a0656201"))
+    .ChildrenOfType("articleItemPage")
+    .Where(x => x.IsVisible())
+    .OrderByDescending(x => x.CreateDate);
+}
+
+
+<section class="our-news">
+    <div class="container">
+        <h1>Our News & Articles</h1>
+        <div class="row">
+        	@foreach (var item in selection)
+            {
+                @await Html.PartialAsync("cards/_ArticleCard", item)
+            }
+        </div>
+        <div>
+            <nav class="paginations text-center">
+                <a href="#"><i class="fa-solid fa-chevron-left"></i></a>
+                <a class="active" href="#">3</a>
+                <a href="#"><i class="fa-solid fa-chevron-right"></i></a>
+            </nav>
+        </div>
+    </div>
+</section>

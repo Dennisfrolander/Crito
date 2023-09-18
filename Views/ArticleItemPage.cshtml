@@ -1,0 +1,92 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.ArticleItemPage>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@using Umbraco.Cms.Core.Models.PublishedContent;
+@using Umbraco.Cms.Core.Services;
+@inject IUserService UserService;
+@{
+	Layout = "_Layout.cshtml";
+	var userService = UserService;
+	
+	//Content variables
+	var tags = Model.Value<IEnumerable<string>>("newsTags");
+	var image = Model.Value<IPublishedContent>("newsImage");
+	var title = Model.Name;
+	var createdDate = Model.CreateDate.ToString("MMM dd, yyyy");
+	var category = Model.Value("newsCategory");
+	var author = Model.CreatorName(UserService);
+	var contentInformation = @Model.Value("newsContent");
+}
+
+@await Html.PartialAsync("_BreadcrumbSection")
+
+ <!--Article-->
+<section class="article">
+    <div class="container">
+        <div class="row title-row">
+            <div class="col-12 col-md-8 col-lg-6 ps-4">
+                <h1>@title</h1>
+                <div class="author-date-type d-flex align-items-center">
+                    <span>@createdDate</span>
+                    <i class="fa-solid fa-circle"></i>
+                    <span>@category</span>
+                    <i class="fa-solid fa-circle"></i>
+                    <span>@author</span>
+                </div>
+            </div>
+            <div class="row d-flex justify-content-between m-0">
+            <article class="col-12 col-md-7">
+                <div class="img-container">
+                    <img src="@image.MediaUrl()" alt="">
+                </div>
+                <div class="information">
+                    @contentInformation
+                </div>
+                <div class="row tags d-flex justify-content-between">
+                    @foreach(var tag in tags) 
+                    {
+                        <a class="col-2" href="#">@tag</a>
+                    }
+                </div>
+            </article>
+            <aside class="d-none d-md-block col-md-4">
+                <div class="search-input">
+                    <input type="text" placeholder="Type to search..">
+                </div>
+                <div class="recent-posts">
+                    <h2>Recent Posts</h2>
+                    <div class="recent-post-card d-flex flex-column">
+                        <a href="">How To Blow Through Capital At An Incredible Rate</a>
+                        <span>Jan 14, 2020</span>
+                    </div>
+                    <div class="recent-post-card d-flex flex-column">
+                        <a href="">Design Studios That Everyone Should Know About?</a>
+                        <span>Jan 14, 2020</span>
+                    </div>
+                    <div class="recent-post-card d-flex flex-column">
+                        <a href="">
+                            How did we get 1M+ visitors in 30 days without anything!
+                        </a>
+                        <span>Jan 14, 2020</span>
+                    </div>
+                    <div class="recent-post-card d-flex flex-column">
+                        <a href="">Figma on Figma: How We Built Our Website Design System</a>
+                        <span>Jan 14, 2020</span>
+                    </div>
+                </div>
+                <div class="categories mt-5">
+                    <h2>Categories</h2>
+                    <div class="category d-flex flex-column">
+                        <a href="#">Technology - <span>20 Posts</span></a>
+                        <a href="#">Freelancing - <span>7 Posts</span></a>
+                        <a href="#">Writing - <span>16 Posts</span></a>
+                        <a href="#">Marketing - <span>11 Posts</span></a>
+                        <a href="#">Business - <span>35 Posts</span></a>
+                        <a href="#">Education - <span>14 Posts</span></a>
+                    </div>
+                </div>
+            </aside>
+            </div>
+        </div>
+    </div>
+</section>
