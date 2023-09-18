@@ -8,8 +8,8 @@
 
 
 @{  
-    var hej = Model.FeaturesBlockList;
-    var blockListModel = new BlockListModel(hej.OrderByDescending(x => hej.IndexOf(x)).ToList());
+    var featuresBlockList = Model.FeaturesBlockList;
+    var blockListModel = new BlockListModel(featuresBlockList.OrderByDescending(x => featuresBlockList.IndexOf(x)).ToList());
 }
 
 <section class="features">

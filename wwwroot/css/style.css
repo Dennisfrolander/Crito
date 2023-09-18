@@ -679,6 +679,16 @@ body {
   
 }
 
+.article-and-news a {
+  color: inherit;
+  
+}
+
+.article-and-news :hover {
+  opacity: 0.7;
+  
+}
+
 .our-news :hover {
   opacity: 0.7;
   
