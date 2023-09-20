@@ -16,8 +16,8 @@ using Umbraco.Cms.Infrastructure.ModelsBuilder;
 using Umbraco.Cms.Core;
 using Umbraco.Extensions;
 
-[assembly:ModelsBuilderAssembly(IsInMemory = true, SourceHash = "d3f58fe7bcd7fcefda79f6084a60ec589e6249bc")]
-[assembly:System.Reflection.AssemblyVersion("0.0.0.1")]
+[assembly:ModelsBuilderAssembly(IsInMemory = true, SourceHash = "c212dc129e81dc5a66a201e8e494b7512c6f5d2b")]
+[assembly:System.Reflection.AssemblyVersion("0.0.0.19")]
 
 namespace Umbraco.Cms.Web.Common.PublishedModels
 {
@@ -241,7 +241,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 
 	/// <summary>Home Page</summary>
 	[PublishedModel("homePage")]
-	public partial class HomePage : PublishedContentModel, IBrandsSettings, IPageSettings, IShowcaseSettings
+	public partial class HomePage : PublishedContentModel, IBrandsSettings, IMemberSectionSettings, IPageSettings, IShowcaseSettings, IWhyChooseUsSettings
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
@@ -367,6 +367,22 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		public virtual global::System.Collections.Generic.IEnumerable<global::Umbraco.Cms.Core.Models.MediaWithCrops> BrandImages => global::Umbraco.Cms.Web.Common.PublishedModels.BrandsSettings.GetBrandImages(this, _publishedValueFallback);
 
 		///<summary>
+		/// Member Section Ingress
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("memberSectionIngress")]
+		public virtual string MemberSectionIngress => global::Umbraco.Cms.Web.Common.PublishedModels.MemberSectionSettings.GetMemberSectionIngress(this, _publishedValueFallback);
+
+		///<summary>
+		/// Member Section Title
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("memberSectionTitle")]
+		public virtual string MemberSectionTitle => global::Umbraco.Cms.Web.Common.PublishedModels.MemberSectionSettings.GetMemberSectionTitle(this, _publishedValueFallback);
+
+		///<summary>
 		/// Page Description
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
@@ -429,6 +445,38 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("showcaseTitle")]
 		public virtual string ShowcaseTitle => global::Umbraco.Cms.Web.Common.PublishedModels.ShowcaseSettings.GetShowcaseTitle(this, _publishedValueFallback);
+
+		///<summary>
+		/// Why Choose Us Image
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("whyChooseUsImage")]
+		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops WhyChooseUsImage => global::Umbraco.Cms.Web.Common.PublishedModels.WhyChooseUsSettings.GetWhyChooseUsImage(this, _publishedValueFallback);
+
+		///<summary>
+		/// Why Choose Us Ingress
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("whyChooseUsIngress")]
+		public virtual string WhyChooseUsIngress => global::Umbraco.Cms.Web.Common.PublishedModels.WhyChooseUsSettings.GetWhyChooseUsIngress(this, _publishedValueFallback);
+
+		///<summary>
+		/// Why Choose Us List
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("whyChooseUsList")]
+		public virtual global::Umbraco.Cms.Core.Models.Blocks.BlockListModel WhyChooseUsList => global::Umbraco.Cms.Web.Common.PublishedModels.WhyChooseUsSettings.GetWhyChooseUsList(this, _publishedValueFallback);
+
+		///<summary>
+		/// Why Choose Us Title
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("whyChooseUsTitle")]
+		public virtual string WhyChooseUsTitle => global::Umbraco.Cms.Web.Common.PublishedModels.WhyChooseUsSettings.GetWhyChooseUsTitle(this, _publishedValueFallback);
 	}
 
 	// Mixin Content Type with alias "brandsSettings"
@@ -668,6 +716,900 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("newsTags")]
 		public virtual global::System.Collections.Generic.IEnumerable<string> NewsTags => this.Value<global::System.Collections.Generic.IEnumerable<string>>(_publishedValueFallback, "newsTags");
+	}
+
+	/// <summary>Service Page</summary>
+	[PublishedModel("servicePage")]
+	public partial class ServicePage : PublishedContentModel, IPageSettings
+	{
+		// helpers
+#pragma warning disable 0109 // new is redundant
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		public new const string ModelTypeAlias = "servicePage";
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		public new static IPublishedContentType GetModelContentType(IPublishedSnapshotAccessor publishedSnapshotAccessor)
+			=> PublishedModelUtility.GetModelContentType(publishedSnapshotAccessor, ModelItemType, ModelTypeAlias);
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(IPublishedSnapshotAccessor publishedSnapshotAccessor, Expression<Func<ServicePage, TValue>> selector)
+			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(publishedSnapshotAccessor), selector);
+#pragma warning restore 0109
+
+		private IPublishedValueFallback _publishedValueFallback;
+
+		// ctor
+		public ServicePage(IPublishedContent content, IPublishedValueFallback publishedValueFallback)
+			: base(content, publishedValueFallback)
+		{
+			_publishedValueFallback = publishedValueFallback;
+		}
+
+		// properties
+
+		///<summary>
+		/// Page Description
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("pageDescription")]
+		public virtual string PageDescription => global::Umbraco.Cms.Web.Common.PublishedModels.PageSettings.GetPageDescription(this, _publishedValueFallback);
+
+		///<summary>
+		/// Page Keywords
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("pageKeywords")]
+		public virtual string PageKeywords => global::Umbraco.Cms.Web.Common.PublishedModels.PageSettings.GetPageKeywords(this, _publishedValueFallback);
+
+		///<summary>
+		/// Page Title
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("pageTitle")]
+		public virtual string PageTitle => global::Umbraco.Cms.Web.Common.PublishedModels.PageSettings.GetPageTitle(this, _publishedValueFallback);
+	}
+
+	// Mixin Content Type with alias "whyChooseUsSettings"
+	/// <summary>Why Choose Us Settings</summary>
+	public partial interface IWhyChooseUsSettings : IPublishedElement
+	{
+		/// <summary>Why Choose Us Image</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		global::Umbraco.Cms.Core.Models.MediaWithCrops WhyChooseUsImage { get; }
+
+		/// <summary>Why Choose Us Ingress</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		string WhyChooseUsIngress { get; }
+
+		/// <summary>Why Choose Us List</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		global::Umbraco.Cms.Core.Models.Blocks.BlockListModel WhyChooseUsList { get; }
+
+		/// <summary>Why Choose Us Title</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		string WhyChooseUsTitle { get; }
+	}
+
+	/// <summary>Why Choose Us Settings</summary>
+	[PublishedModel("whyChooseUsSettings")]
+	public partial class WhyChooseUsSettings : PublishedElementModel, IWhyChooseUsSettings
+	{
+		// helpers
+#pragma warning disable 0109 // new is redundant
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		public new const string ModelTypeAlias = "whyChooseUsSettings";
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		public new static IPublishedContentType GetModelContentType(IPublishedSnapshotAccessor publishedSnapshotAccessor)
+			=> PublishedModelUtility.GetModelContentType(publishedSnapshotAccessor, ModelItemType, ModelTypeAlias);
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(IPublishedSnapshotAccessor publishedSnapshotAccessor, Expression<Func<WhyChooseUsSettings, TValue>> selector)
+			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(publishedSnapshotAccessor), selector);
+#pragma warning restore 0109
+
+		private IPublishedValueFallback _publishedValueFallback;
+
+		// ctor
+		public WhyChooseUsSettings(IPublishedElement content, IPublishedValueFallback publishedValueFallback)
+			: base(content, publishedValueFallback)
+		{
+			_publishedValueFallback = publishedValueFallback;
+		}
+
+		// properties
+
+		///<summary>
+		/// Why Choose Us Image
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("whyChooseUsImage")]
+		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops WhyChooseUsImage => GetWhyChooseUsImage(this, _publishedValueFallback);
+
+		/// <summary>Static getter for Why Choose Us Image</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		public static global::Umbraco.Cms.Core.Models.MediaWithCrops GetWhyChooseUsImage(IWhyChooseUsSettings that, IPublishedValueFallback publishedValueFallback) => that.Value<global::Umbraco.Cms.Core.Models.MediaWithCrops>(publishedValueFallback, "whyChooseUsImage");
+
+		///<summary>
+		/// Why Choose Us Ingress
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("whyChooseUsIngress")]
+		public virtual string WhyChooseUsIngress => GetWhyChooseUsIngress(this, _publishedValueFallback);
+
+		/// <summary>Static getter for Why Choose Us Ingress</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		public static string GetWhyChooseUsIngress(IWhyChooseUsSettings that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "whyChooseUsIngress");
+
+		///<summary>
+		/// Why Choose Us List
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("whyChooseUsList")]
+		public virtual global::Umbraco.Cms.Core.Models.Blocks.BlockListModel WhyChooseUsList => GetWhyChooseUsList(this, _publishedValueFallback);
+
+		/// <summary>Static getter for Why Choose Us List</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		public static global::Umbraco.Cms.Core.Models.Blocks.BlockListModel GetWhyChooseUsList(IWhyChooseUsSettings that, IPublishedValueFallback publishedValueFallback) => that.Value<global::Umbraco.Cms.Core.Models.Blocks.BlockListModel>(publishedValueFallback, "whyChooseUsList");
+
+		///<summary>
+		/// Why Choose Us Title
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("whyChooseUsTitle")]
+		public virtual string WhyChooseUsTitle => GetWhyChooseUsTitle(this, _publishedValueFallback);
+
+		/// <summary>Static getter for Why Choose Us Title</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		public static string GetWhyChooseUsTitle(IWhyChooseUsSettings that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "whyChooseUsTitle");
+	}
+
+	/// <summary>ChooseUsCard</summary>
+	[PublishedModel("chooseUsCard")]
+	public partial class ChooseUsCard : PublishedElementModel
+	{
+		// helpers
+#pragma warning disable 0109 // new is redundant
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		public new const string ModelTypeAlias = "chooseUsCard";
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		public new static IPublishedContentType GetModelContentType(IPublishedSnapshotAccessor publishedSnapshotAccessor)
+			=> PublishedModelUtility.GetModelContentType(publishedSnapshotAccessor, ModelItemType, ModelTypeAlias);
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(IPublishedSnapshotAccessor publishedSnapshotAccessor, Expression<Func<ChooseUsCard, TValue>> selector)
+			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(publishedSnapshotAccessor), selector);
+#pragma warning restore 0109
+
+		private IPublishedValueFallback _publishedValueFallback;
+
+		// ctor
+		public ChooseUsCard(IPublishedElement content, IPublishedValueFallback publishedValueFallback)
+			: base(content, publishedValueFallback)
+		{
+			_publishedValueFallback = publishedValueFallback;
+		}
+
+		// properties
+
+		///<summary>
+		/// Choose Us Card Description
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("chooseUsCardDescription")]
+		public virtual string ChooseUsCardDescription => this.Value<string>(_publishedValueFallback, "chooseUsCardDescription");
+
+		///<summary>
+		/// Choose Us Card Icon
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("chooseUsCardIcon")]
+		public virtual string ChooseUsCardIcon => this.Value<string>(_publishedValueFallback, "chooseUsCardIcon");
+
+		///<summary>
+		/// Choose Us Card Title
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("chooseUsCardTitle")]
+		public virtual string ChooseUsCardTitle => this.Value<string>(_publishedValueFallback, "chooseUsCardTitle");
+	}
+
+	/// <summary>About Page</summary>
+	[PublishedModel("aboutPage")]
+	public partial class AboutPage : PublishedContentModel, IMemberSectionSettings, IPageSettings
+	{
+		// helpers
+#pragma warning disable 0109 // new is redundant
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		public new const string ModelTypeAlias = "aboutPage";
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		public new static IPublishedContentType GetModelContentType(IPublishedSnapshotAccessor publishedSnapshotAccessor)
+			=> PublishedModelUtility.GetModelContentType(publishedSnapshotAccessor, ModelItemType, ModelTypeAlias);
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(IPublishedSnapshotAccessor publishedSnapshotAccessor, Expression<Func<AboutPage, TValue>> selector)
+			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(publishedSnapshotAccessor), selector);
+#pragma warning restore 0109
+
+		private IPublishedValueFallback _publishedValueFallback;
+
+		// ctor
+		public AboutPage(IPublishedContent content, IPublishedValueFallback publishedValueFallback)
+			: base(content, publishedValueFallback)
+		{
+			_publishedValueFallback = publishedValueFallback;
+		}
+
+		// properties
+
+		///<summary>
+		/// Member Section Ingress
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("memberSectionIngress")]
+		public virtual string MemberSectionIngress => global::Umbraco.Cms.Web.Common.PublishedModels.MemberSectionSettings.GetMemberSectionIngress(this, _publishedValueFallback);
+
+		///<summary>
+		/// Member Section Title
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("memberSectionTitle")]
+		public virtual string MemberSectionTitle => global::Umbraco.Cms.Web.Common.PublishedModels.MemberSectionSettings.GetMemberSectionTitle(this, _publishedValueFallback);
+
+		///<summary>
+		/// Page Description
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("pageDescription")]
+		public virtual string PageDescription => global::Umbraco.Cms.Web.Common.PublishedModels.PageSettings.GetPageDescription(this, _publishedValueFallback);
+
+		///<summary>
+		/// Page Keywords
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("pageKeywords")]
+		public virtual string PageKeywords => global::Umbraco.Cms.Web.Common.PublishedModels.PageSettings.GetPageKeywords(this, _publishedValueFallback);
+
+		///<summary>
+		/// Page Title
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("pageTitle")]
+		public virtual string PageTitle => global::Umbraco.Cms.Web.Common.PublishedModels.PageSettings.GetPageTitle(this, _publishedValueFallback);
+	}
+
+	/// <summary>Member Item Page</summary>
+	[PublishedModel("memberItemPage")]
+	public partial class MemberItemPage : PublishedContentModel, IMemberSettings, IPageSettings
+	{
+		// helpers
+#pragma warning disable 0109 // new is redundant
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		public new const string ModelTypeAlias = "memberItemPage";
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		public new static IPublishedContentType GetModelContentType(IPublishedSnapshotAccessor publishedSnapshotAccessor)
+			=> PublishedModelUtility.GetModelContentType(publishedSnapshotAccessor, ModelItemType, ModelTypeAlias);
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(IPublishedSnapshotAccessor publishedSnapshotAccessor, Expression<Func<MemberItemPage, TValue>> selector)
+			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(publishedSnapshotAccessor), selector);
+#pragma warning restore 0109
+
+		private IPublishedValueFallback _publishedValueFallback;
+
+		// ctor
+		public MemberItemPage(IPublishedContent content, IPublishedValueFallback publishedValueFallback)
+			: base(content, publishedValueFallback)
+		{
+			_publishedValueFallback = publishedValueFallback;
+		}
+
+		// properties
+
+		///<summary>
+		/// Member Name
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("memberName")]
+		public virtual string MemberName => global::Umbraco.Cms.Web.Common.PublishedModels.MemberSettings.GetMemberName(this, _publishedValueFallback);
+
+		///<summary>
+		/// Member Profile Image
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("memberProfileImage")]
+		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops MemberProfileImage => global::Umbraco.Cms.Web.Common.PublishedModels.MemberSettings.GetMemberProfileImage(this, _publishedValueFallback);
+
+		///<summary>
+		/// Member Role
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("memberRole")]
+		public virtual string MemberRole => global::Umbraco.Cms.Web.Common.PublishedModels.MemberSettings.GetMemberRole(this, _publishedValueFallback);
+
+		///<summary>
+		/// Page Description
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("pageDescription")]
+		public virtual string PageDescription => global::Umbraco.Cms.Web.Common.PublishedModels.PageSettings.GetPageDescription(this, _publishedValueFallback);
+
+		///<summary>
+		/// Page Keywords
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("pageKeywords")]
+		public virtual string PageKeywords => global::Umbraco.Cms.Web.Common.PublishedModels.PageSettings.GetPageKeywords(this, _publishedValueFallback);
+
+		///<summary>
+		/// Page Title
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("pageTitle")]
+		public virtual string PageTitle => global::Umbraco.Cms.Web.Common.PublishedModels.PageSettings.GetPageTitle(this, _publishedValueFallback);
+	}
+
+	/// <summary>Member Page</summary>
+	[PublishedModel("memberPage")]
+	public partial class MemberPage : PublishedContentModel, IPageSettings
+	{
+		// helpers
+#pragma warning disable 0109 // new is redundant
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		public new const string ModelTypeAlias = "memberPage";
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		public new static IPublishedContentType GetModelContentType(IPublishedSnapshotAccessor publishedSnapshotAccessor)
+			=> PublishedModelUtility.GetModelContentType(publishedSnapshotAccessor, ModelItemType, ModelTypeAlias);
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(IPublishedSnapshotAccessor publishedSnapshotAccessor, Expression<Func<MemberPage, TValue>> selector)
+			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(publishedSnapshotAccessor), selector);
+#pragma warning restore 0109
+
+		private IPublishedValueFallback _publishedValueFallback;
+
+		// ctor
+		public MemberPage(IPublishedContent content, IPublishedValueFallback publishedValueFallback)
+			: base(content, publishedValueFallback)
+		{
+			_publishedValueFallback = publishedValueFallback;
+		}
+
+		// properties
+
+		///<summary>
+		/// Page Description
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("pageDescription")]
+		public virtual string PageDescription => global::Umbraco.Cms.Web.Common.PublishedModels.PageSettings.GetPageDescription(this, _publishedValueFallback);
+
+		///<summary>
+		/// Page Keywords
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("pageKeywords")]
+		public virtual string PageKeywords => global::Umbraco.Cms.Web.Common.PublishedModels.PageSettings.GetPageKeywords(this, _publishedValueFallback);
+
+		///<summary>
+		/// Page Title
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("pageTitle")]
+		public virtual string PageTitle => global::Umbraco.Cms.Web.Common.PublishedModels.PageSettings.GetPageTitle(this, _publishedValueFallback);
+	}
+
+	// Mixin Content Type with alias "memberSettings"
+	/// <summary>Member Settings</summary>
+	public partial interface IMemberSettings : IPublishedElement
+	{
+		/// <summary>Member Name</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		string MemberName { get; }
+
+		/// <summary>Member Profile Image</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		global::Umbraco.Cms.Core.Models.MediaWithCrops MemberProfileImage { get; }
+
+		/// <summary>Member Role</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		string MemberRole { get; }
+	}
+
+	/// <summary>Member Settings</summary>
+	[PublishedModel("memberSettings")]
+	public partial class MemberSettings : PublishedElementModel, IMemberSettings
+	{
+		// helpers
+#pragma warning disable 0109 // new is redundant
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		public new const string ModelTypeAlias = "memberSettings";
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		public new static IPublishedContentType GetModelContentType(IPublishedSnapshotAccessor publishedSnapshotAccessor)
+			=> PublishedModelUtility.GetModelContentType(publishedSnapshotAccessor, ModelItemType, ModelTypeAlias);
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(IPublishedSnapshotAccessor publishedSnapshotAccessor, Expression<Func<MemberSettings, TValue>> selector)
+			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(publishedSnapshotAccessor), selector);
+#pragma warning restore 0109
+
+		private IPublishedValueFallback _publishedValueFallback;
+
+		// ctor
+		public MemberSettings(IPublishedElement content, IPublishedValueFallback publishedValueFallback)
+			: base(content, publishedValueFallback)
+		{
+			_publishedValueFallback = publishedValueFallback;
+		}
+
+		// properties
+
+		///<summary>
+		/// Member Name
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("memberName")]
+		public virtual string MemberName => GetMemberName(this, _publishedValueFallback);
+
+		/// <summary>Static getter for Member Name</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		public static string GetMemberName(IMemberSettings that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "memberName");
+
+		///<summary>
+		/// Member Profile Image
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("memberProfileImage")]
+		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops MemberProfileImage => GetMemberProfileImage(this, _publishedValueFallback);
+
+		/// <summary>Static getter for Member Profile Image</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		public static global::Umbraco.Cms.Core.Models.MediaWithCrops GetMemberProfileImage(IMemberSettings that, IPublishedValueFallback publishedValueFallback) => that.Value<global::Umbraco.Cms.Core.Models.MediaWithCrops>(publishedValueFallback, "memberProfileImage");
+
+		///<summary>
+		/// Member Role
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("memberRole")]
+		public virtual string MemberRole => GetMemberRole(this, _publishedValueFallback);
+
+		/// <summary>Static getter for Member Role</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		public static string GetMemberRole(IMemberSettings that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "memberRole");
+	}
+
+	// Mixin Content Type with alias "memberSectionSettings"
+	/// <summary>MemberSection settings</summary>
+	public partial interface IMemberSectionSettings : IPublishedElement
+	{
+		/// <summary>Member Section Ingress</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		string MemberSectionIngress { get; }
+
+		/// <summary>Member Section Title</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		string MemberSectionTitle { get; }
+	}
+
+	/// <summary>MemberSection settings</summary>
+	[PublishedModel("memberSectionSettings")]
+	public partial class MemberSectionSettings : PublishedElementModel, IMemberSectionSettings
+	{
+		// helpers
+#pragma warning disable 0109 // new is redundant
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		public new const string ModelTypeAlias = "memberSectionSettings";
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		public new static IPublishedContentType GetModelContentType(IPublishedSnapshotAccessor publishedSnapshotAccessor)
+			=> PublishedModelUtility.GetModelContentType(publishedSnapshotAccessor, ModelItemType, ModelTypeAlias);
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(IPublishedSnapshotAccessor publishedSnapshotAccessor, Expression<Func<MemberSectionSettings, TValue>> selector)
+			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(publishedSnapshotAccessor), selector);
+#pragma warning restore 0109
+
+		private IPublishedValueFallback _publishedValueFallback;
+
+		// ctor
+		public MemberSectionSettings(IPublishedElement content, IPublishedValueFallback publishedValueFallback)
+			: base(content, publishedValueFallback)
+		{
+			_publishedValueFallback = publishedValueFallback;
+		}
+
+		// properties
+
+		///<summary>
+		/// Member Section Ingress
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("memberSectionIngress")]
+		public virtual string MemberSectionIngress => GetMemberSectionIngress(this, _publishedValueFallback);
+
+		/// <summary>Static getter for Member Section Ingress</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		public static string GetMemberSectionIngress(IMemberSectionSettings that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "memberSectionIngress");
+
+		///<summary>
+		/// Member Section Title
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("memberSectionTitle")]
+		public virtual string MemberSectionTitle => GetMemberSectionTitle(this, _publishedValueFallback);
+
+		/// <summary>Static getter for Member Section Title</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		public static string GetMemberSectionTitle(IMemberSectionSettings that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "memberSectionTitle");
+	}
+
+	/// <summary>Reviews Page</summary>
+	[PublishedModel("reviewsPage")]
+	public partial class ReviewsPage : PublishedContentModel, IPageSettings
+	{
+		// helpers
+#pragma warning disable 0109 // new is redundant
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		public new const string ModelTypeAlias = "reviewsPage";
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		public new static IPublishedContentType GetModelContentType(IPublishedSnapshotAccessor publishedSnapshotAccessor)
+			=> PublishedModelUtility.GetModelContentType(publishedSnapshotAccessor, ModelItemType, ModelTypeAlias);
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(IPublishedSnapshotAccessor publishedSnapshotAccessor, Expression<Func<ReviewsPage, TValue>> selector)
+			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(publishedSnapshotAccessor), selector);
+#pragma warning restore 0109
+
+		private IPublishedValueFallback _publishedValueFallback;
+
+		// ctor
+		public ReviewsPage(IPublishedContent content, IPublishedValueFallback publishedValueFallback)
+			: base(content, publishedValueFallback)
+		{
+			_publishedValueFallback = publishedValueFallback;
+		}
+
+		// properties
+
+		///<summary>
+		/// Page Description
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("pageDescription")]
+		public virtual string PageDescription => global::Umbraco.Cms.Web.Common.PublishedModels.PageSettings.GetPageDescription(this, _publishedValueFallback);
+
+		///<summary>
+		/// Page Keywords
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("pageKeywords")]
+		public virtual string PageKeywords => global::Umbraco.Cms.Web.Common.PublishedModels.PageSettings.GetPageKeywords(this, _publishedValueFallback);
+
+		///<summary>
+		/// Page Title
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("pageTitle")]
+		public virtual string PageTitle => global::Umbraco.Cms.Web.Common.PublishedModels.PageSettings.GetPageTitle(this, _publishedValueFallback);
+	}
+
+	/// <summary>Reviews Item Page</summary>
+	[PublishedModel("reviewsItemPage")]
+	public partial class ReviewsItemPage : PublishedContentModel, IPageSettings, IReviewsSettings
+	{
+		// helpers
+#pragma warning disable 0109 // new is redundant
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		public new const string ModelTypeAlias = "reviewsItemPage";
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		public new static IPublishedContentType GetModelContentType(IPublishedSnapshotAccessor publishedSnapshotAccessor)
+			=> PublishedModelUtility.GetModelContentType(publishedSnapshotAccessor, ModelItemType, ModelTypeAlias);
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(IPublishedSnapshotAccessor publishedSnapshotAccessor, Expression<Func<ReviewsItemPage, TValue>> selector)
+			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(publishedSnapshotAccessor), selector);
+#pragma warning restore 0109
+
+		private IPublishedValueFallback _publishedValueFallback;
+
+		// ctor
+		public ReviewsItemPage(IPublishedContent content, IPublishedValueFallback publishedValueFallback)
+			: base(content, publishedValueFallback)
+		{
+			_publishedValueFallback = publishedValueFallback;
+		}
+
+		// properties
+
+		///<summary>
+		/// Page Description
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("pageDescription")]
+		public virtual string PageDescription => global::Umbraco.Cms.Web.Common.PublishedModels.PageSettings.GetPageDescription(this, _publishedValueFallback);
+
+		///<summary>
+		/// Page Keywords
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("pageKeywords")]
+		public virtual string PageKeywords => global::Umbraco.Cms.Web.Common.PublishedModels.PageSettings.GetPageKeywords(this, _publishedValueFallback);
+
+		///<summary>
+		/// Page Title
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("pageTitle")]
+		public virtual string PageTitle => global::Umbraco.Cms.Web.Common.PublishedModels.PageSettings.GetPageTitle(this, _publishedValueFallback);
+
+		///<summary>
+		/// Review Description
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("reviewDescription")]
+		public virtual string ReviewDescription => global::Umbraco.Cms.Web.Common.PublishedModels.ReviewsSettings.GetReviewDescription(this, _publishedValueFallback);
+
+		///<summary>
+		/// Review Rating
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		[ImplementPropertyType("reviewRating")]
+		public virtual decimal ReviewRating => global::Umbraco.Cms.Web.Common.PublishedModels.ReviewsSettings.GetReviewRating(this, _publishedValueFallback);
+
+		///<summary>
+		/// Review Writer
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("reviewWriter")]
+		public virtual string ReviewWriter => global::Umbraco.Cms.Web.Common.PublishedModels.ReviewsSettings.GetReviewWriter(this, _publishedValueFallback);
+
+		///<summary>
+		/// Review Writer Corporation
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("reviewWriterCorporation")]
+		public virtual string ReviewWriterCorporation => global::Umbraco.Cms.Web.Common.PublishedModels.ReviewsSettings.GetReviewWriterCorporation(this, _publishedValueFallback);
+
+		///<summary>
+		/// Review Writer Image
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("reviewWriterImage")]
+		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops ReviewWriterImage => global::Umbraco.Cms.Web.Common.PublishedModels.ReviewsSettings.GetReviewWriterImage(this, _publishedValueFallback);
+
+		///<summary>
+		/// Review Writer Role
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("reviewWriterRole")]
+		public virtual string ReviewWriterRole => global::Umbraco.Cms.Web.Common.PublishedModels.ReviewsSettings.GetReviewWriterRole(this, _publishedValueFallback);
+	}
+
+	// Mixin Content Type with alias "reviewsSettings"
+	/// <summary>Reviews Settings</summary>
+	public partial interface IReviewsSettings : IPublishedElement
+	{
+		/// <summary>Review Description</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		string ReviewDescription { get; }
+
+		/// <summary>Review Rating</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		decimal ReviewRating { get; }
+
+		/// <summary>Review Writer</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		string ReviewWriter { get; }
+
+		/// <summary>Review Writer Corporation</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		string ReviewWriterCorporation { get; }
+
+		/// <summary>Review Writer Image</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		global::Umbraco.Cms.Core.Models.MediaWithCrops ReviewWriterImage { get; }
+
+		/// <summary>Review Writer Role</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		string ReviewWriterRole { get; }
+	}
+
+	/// <summary>Reviews Settings</summary>
+	[PublishedModel("reviewsSettings")]
+	public partial class ReviewsSettings : PublishedElementModel, IReviewsSettings
+	{
+		// helpers
+#pragma warning disable 0109 // new is redundant
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		public new const string ModelTypeAlias = "reviewsSettings";
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		public new static IPublishedContentType GetModelContentType(IPublishedSnapshotAccessor publishedSnapshotAccessor)
+			=> PublishedModelUtility.GetModelContentType(publishedSnapshotAccessor, ModelItemType, ModelTypeAlias);
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(IPublishedSnapshotAccessor publishedSnapshotAccessor, Expression<Func<ReviewsSettings, TValue>> selector)
+			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(publishedSnapshotAccessor), selector);
+#pragma warning restore 0109
+
+		private IPublishedValueFallback _publishedValueFallback;
+
+		// ctor
+		public ReviewsSettings(IPublishedElement content, IPublishedValueFallback publishedValueFallback)
+			: base(content, publishedValueFallback)
+		{
+			_publishedValueFallback = publishedValueFallback;
+		}
+
+		// properties
+
+		///<summary>
+		/// Review Description
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("reviewDescription")]
+		public virtual string ReviewDescription => GetReviewDescription(this, _publishedValueFallback);
+
+		/// <summary>Static getter for Review Description</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		public static string GetReviewDescription(IReviewsSettings that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "reviewDescription");
+
+		///<summary>
+		/// Review Rating
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		[ImplementPropertyType("reviewRating")]
+		public virtual decimal ReviewRating => GetReviewRating(this, _publishedValueFallback);
+
+		/// <summary>Static getter for Review Rating</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		public static decimal GetReviewRating(IReviewsSettings that, IPublishedValueFallback publishedValueFallback) => that.Value<decimal>(publishedValueFallback, "reviewRating");
+
+		///<summary>
+		/// Review Writer
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("reviewWriter")]
+		public virtual string ReviewWriter => GetReviewWriter(this, _publishedValueFallback);
+
+		/// <summary>Static getter for Review Writer</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		public static string GetReviewWriter(IReviewsSettings that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "reviewWriter");
+
+		///<summary>
+		/// Review Writer Corporation
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("reviewWriterCorporation")]
+		public virtual string ReviewWriterCorporation => GetReviewWriterCorporation(this, _publishedValueFallback);
+
+		/// <summary>Static getter for Review Writer Corporation</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		public static string GetReviewWriterCorporation(IReviewsSettings that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "reviewWriterCorporation");
+
+		///<summary>
+		/// Review Writer Image
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("reviewWriterImage")]
+		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops ReviewWriterImage => GetReviewWriterImage(this, _publishedValueFallback);
+
+		/// <summary>Static getter for Review Writer Image</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		public static global::Umbraco.Cms.Core.Models.MediaWithCrops GetReviewWriterImage(IReviewsSettings that, IPublishedValueFallback publishedValueFallback) => that.Value<global::Umbraco.Cms.Core.Models.MediaWithCrops>(publishedValueFallback, "reviewWriterImage");
+
+		///<summary>
+		/// Review Writer Role
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("reviewWriterRole")]
+		public virtual string ReviewWriterRole => GetReviewWriterRole(this, _publishedValueFallback);
+
+		/// <summary>Static getter for Review Writer Role</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "12.1.2+9230b25")]
+		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		public static string GetReviewWriterRole(IReviewsSettings that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "reviewWriterRole");
 	}
 
 	/// <summary>Folder</summary>
