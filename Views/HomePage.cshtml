@@ -23,9 +23,14 @@
     
 
 	var reviewList = Umbraco.Content(Guid.Parse("af3987d4-996d-4671-9dd9-5a9b41189269"))
-    .ChildrenOfType("reviewsItemPage")
-    .Where(x => x.IsVisible())
-    .OrderByDescending(x => x.CreateDate);
+        .ChildrenOfType("reviewsItemPage")
+        .Where(x => x.IsVisible())
+        .OrderByDescending(x => x.CreateDate).Take(3);
+    
+    var projectList = Umbraco.Content(Guid.Parse("df621e98-7972-4b4e-a501-23f3905113ff"))
+        .ChildrenOfType("projectItemPage")
+        .Where(x => x.IsVisible())
+        .OrderByDescending(x => x.CreateDate).Take(4);
 
 }
 
@@ -34,6 +39,7 @@
 @await Html.PartialAsync("_FeaturesSection")
 @await Html.PartialAsync("_AboutCompany")
 @await Html.PartialAsync("_WhyChooseUsSection")
+@await Html.PartialAsync("_ProjectSection", projectList)
 @await Html.PartialAsync("team/_teamMemberSection", memberList)
 @await Html.PartialAsync("team/_ReviewsSection", reviewList)
 @await Html.PartialAsync("_ArticlesAndNewsSection", articleList)

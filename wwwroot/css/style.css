@@ -542,7 +542,6 @@ body {
   object-fit: cover;
 }
 .project-case-studies .business-cards .business-card-info {
-  height: calc(100% - 250px);
   position: relative;
 }
 .project-case-studies .business-cards .business-card-info h3 {
@@ -550,7 +549,7 @@ body {
 }
 .project-case-studies .business-cards .business-card-info a {
   border-top: 1px solid rgba(0, 0, 0, 0.1);
-  position: absolute;
+
   bottom: 0;
   width: 100%;
   text-align: end;

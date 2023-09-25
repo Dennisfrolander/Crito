@@ -8,8 +8,8 @@
     Layout = "_Layout.cshtml";
     var userService = UserService;
 
-    var selection = Umbraco.Content(Guid.Parse("f0723956-45ba-4e26-9181-6fb7a0656201"))
-    .ChildrenOfType("articleItemPage")
+    var selection = Umbraco.Content(Guid.Parse("f0723956-45ba-4e26-9181-6fb7a0656201"))?
+    .ChildrenOfType("articleItemPage")?
     .Where(x => x.IsVisible())
     .OrderByDescending(x => x.CreateDate).ToList();
     
