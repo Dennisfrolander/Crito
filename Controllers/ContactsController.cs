@@ -31,7 +31,6 @@ public class ContactsController : SurfaceController
         //To Reciever
         await mail.SendAsync("Dennisfrolander1@hotmail.com", $"{contactForm.Name} sent a contact request", contactForm.Message).ConfigureAwait(false);
 
-
         return LocalRedirect(contactForm.ReDirectUrl ?? "/");
     }
 }
