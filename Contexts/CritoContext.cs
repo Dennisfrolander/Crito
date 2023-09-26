@@ -15,6 +15,7 @@ public class CritoContext : DbContext
     }
 
     public required DbSet<ContactEntity> Contacts { get; set; }
+    public required DbSet<SubscriptionEntity> Subscription { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder) =>
         modelBuilder.Entity<ContactEntity>(entity =>

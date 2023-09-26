@@ -1,4 +1,5 @@
-﻿using Crito.Models;
+﻿using Crito.Contexts;
+using Crito.Models;
 using Crito.Services;
 using Microsoft.AspNetCore.Mvc;
 using Umbraco.Cms.Core.Cache;
@@ -13,24 +14,36 @@ namespace Crito.Controllers;
 
 public class ContactsController : SurfaceController
 {
-    public ContactsController(IUmbracoContextAccessor umbracoContextAccessor, IUmbracoDatabaseFactory databaseFactory, ServiceContext services, AppCaches appCaches, IProfilingLogger profilingLogger, IPublishedUrlProvider publishedUrlProvider) : base(umbracoContextAccessor, databaseFactory, services, appCaches, profilingLogger, publishedUrlProvider)
+    protected readonly CritoContext _context;
+
+    public ContactsController(IUmbracoContextAccessor umbracoContextAccessor, IUmbracoDatabaseFactory databaseFactory, ServiceContext services, AppCaches appCaches, IProfilingLogger profilingLogger, IPublishedUrlProvider publishedUrlProvider, CritoContext context) : base(umbracoContextAccessor, databaseFactory, services, appCaches, profilingLogger, publishedUrlProvider)
     {
+        _context = context;
     }
 
     [HttpPost]
     public async Task<IActionResult> Index(ContactForm contactForm)
     {
-        if(!ModelState.IsValid)
-            return CurrentUmbracoPage();
+        //if(!ModelState.IsValid)
+        //    return CurrentUmbracoPage();
 
-        using var mail = new MailService("no-reply@crito.com", "smtp.crito.com", 587, "contactform@crito.com", "lösenord");
+        //using var mail = new MailService("no-reply@crito.com", "smtp.crito.com", 587, "contactform@crito.com", "lösenord");
 
-        //To sender
-        await mail.SendAsync(contactForm.Email, "Your request was recieved.", "Hi your Request was recieved and we will be in contact with you as soon as possible.").ConfigureAwait(false);
+        ////To sender
+        //await mail.SendAsync(contactForm.Email, "Your request was recieved.", "Hi your Request was recieved and we will be in contact with you as soon as possible.").ConfigureAwait(false);
 
-        //To Reciever
-        await mail.SendAsync("Dennisfrolander1@hotmail.com", $"{contactForm.Name} sent a contact request", contactForm.Message).ConfigureAwait(false);
+        ////To Reciever
+        //await mail.SendAsync("Dennisfrolander1@hotmail.com", $"{contactForm.Name} sent a contact request", contactForm.Message).ConfigureAwait(false);
 
-        return LocalRedirect(contactForm.ReDirectUrl ?? "/");
+        //return LocalRedirect(contactForm.ReDirectUrl ?? "/");
+
+        if (ModelState.IsValid) 
+        {
+            await _context.Contacts.AddAsync(contactForm);
+            await _context.SaveChangesAsync();
+            return LocalRedirect(contactForm.ReDirectUrl ?? "/");
+        }
+
+        return CurrentUmbracoPage();
     }
 }
