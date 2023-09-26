@@ -26,7 +26,7 @@ public class ContactsController : SurfaceController
         using var mail = new MailService("no-reply@crito.com", "smtp.crito.com", 587, "contactform@crito.com", "lösenord");
 
         //To sender
-        await mail.SendAsync(contactForm.Email, "Your request was recieved.", "Hi your Rquest was recieved and we will be in contact with you as soon as possible.").ConfigureAwait(false);
+        await mail.SendAsync(contactForm.Email, "Your request was recieved.", "Hi your Request was recieved and we will be in contact with you as soon as possible.").ConfigureAwait(false);
 
         //To Reciever
         await mail.SendAsync("Dennisfrolander1@hotmail.com", $"{contactForm.Name} sent a contact request", contactForm.Message).ConfigureAwait(false);
