@@ -1,3 +1,6 @@
+using Crito.Contexts;
+using Serilog.Context;
+
 namespace Crito
 {
     public class Startup
@@ -34,7 +37,9 @@ namespace Crito
                 .AddWebsite()
                 .AddDeliveryApi()
                 .AddComposers()
-                .Build();
+            .Build();
+
+            services.AddUmbracoEFCoreContext<CritoContext>("umbracoDbDSN", "umbracoDbDSN_ProviderName");
         }
 
         /// <summary>
