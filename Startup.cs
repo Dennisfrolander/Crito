@@ -1,3 +1,6 @@
+using Crito.Contexts;
+using Crito.Services;
+
 namespace Crito
 {
     public class Startup
@@ -35,6 +38,9 @@ namespace Crito
                 .AddDeliveryApi()
                 .AddComposers()
                 .Build();
+
+            services.AddUmbracoEFCoreContext<ContactContext>("{UmbracoDatabase}", "{umbracoDbDSN_ProviderName}");
+            services.AddScoped<SubscriptionService>();
         }
 
         /// <summary>
