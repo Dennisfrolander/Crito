@@ -1,4 +1,5 @@
 using Crito.Contexts;
+using Crito.Interfaces;
 using Crito.Services;
 
 namespace Crito
@@ -41,6 +42,7 @@ namespace Crito
 
             services.AddUmbracoEFCoreContext<ContactContext>("{UmbracoDatabase}", "{umbracoDbDSN_ProviderName}");
             services.AddScoped<SubscriptionService>();
+            services.AddTransient<ISearchService, SearchService>();
         }
 
         /// <summary>

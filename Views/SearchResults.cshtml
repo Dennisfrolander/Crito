@@ -1,0 +1,27 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Crito.Models.ViewModels.SearchViewModel>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+	Layout = "_Layout.cshtml";
+}
+<p>Search Value: @Model.SearchValue</p>
+<div>
+    @if (Model.SearchResults.Any())
+    {
+        <ul>
+            @foreach (var content in Model.SearchResults)
+            {
+                <li>
+                    <a href="@content.Url()">@content.Name</a>
+                </li>
+            }
+        </ul>
+    }
+    else if (Model.HasSearched)
+    {
+        <p>No results found</p>
+    }
+</div>
+
+
+Detta är en annan CSHTML

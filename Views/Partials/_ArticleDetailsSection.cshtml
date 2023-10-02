@@ -61,9 +61,10 @@
                 </div>
             </article>
             <aside class="d-none d-md-block col-md-4">
-                <div class="search-input">
-                    <input type="text" placeholder="Type to search..">
-                </div>
+                    <form class="search-input" action="@Model.Url()" method="get">
+                        <input type="text" placeholder="Search" name="query" />
+                        <button>Search</button>
+                    </form>
                 <div class="recent-posts">
                     <h2>Recent Posts</h2>
                         @foreach(var item in listOfArticles.Take(4)){
