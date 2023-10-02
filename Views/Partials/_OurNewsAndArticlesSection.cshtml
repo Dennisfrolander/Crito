@@ -10,11 +10,8 @@
     if (!int.TryParse(Context.Request.Query["page"], out pageNumber))
         pageNumber = 1;
         
-        
     var totalItems = Model?.Count() ?? 0;
     var pageditems = Model?.Skip((pageNumber -1) * itemsPerPage).Take(itemsPerPage);
-
-
 }
 
 

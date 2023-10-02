@@ -65,6 +65,11 @@ namespace Crito
                 })
                 .WithEndpoints(u =>
                 {
+                    u.EndpointRouteBuilder.MapControllerRoute(
+                    name: "Search",
+                    pattern: "Search",
+                    defaults: new { controller = "ArticleItemPage", action = "Search" });
+
                     u.UseInstallerEndpoints();
                     u.UseBackOfficeEndpoints();
                     u.UseWebsiteEndpoints();
