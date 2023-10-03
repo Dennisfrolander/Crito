@@ -4,10 +4,10 @@
 
 ## Hur man startar programmet:
 
-```"Login Inforamtion": {
+``` "Login Inforamtion": 
     "Username": "Dennis@domain.com",
     "Password": "Dennis123!"
-  }
+  
   ```
   
   ***Se till att du lagt till en connection mellan sqlite och din lokaladatabas som finns i Models > Contexts > Databases (IdentityDatabase / MainDb).***
