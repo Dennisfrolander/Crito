@@ -5,7 +5,7 @@
 ## Hur man startar programmet:
 
 ```
-    "Login Inforamtion":
+    "Login Information":
 
     "Username": "Dennis@domain.com",
     "Password": "Dennis123!"
