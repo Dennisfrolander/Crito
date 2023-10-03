@@ -5,9 +5,9 @@
 ## Hur man startar programmet:
 ***Ändra connectionstrings i appsettings.json*** 
 
-```"ConnectionStrings": {
-    "UmbracoDatabase": "Your connectionstring to database",
-    "umbracoDbDSN_ProviderName": "Microsoft.Data.Sqlite"
+```"Login Inforamtion": {
+    "Username": "Dennis@domain.com",
+    "Password": "Dennis123!"
   }
   ```
   
