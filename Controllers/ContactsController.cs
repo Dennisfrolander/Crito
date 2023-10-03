@@ -37,13 +37,13 @@ public class ContactsController : SurfaceController
             //To Reciever
             await mail.SendAsync("Dennisfrolander1@hotmail.com", $"{contactForm.Name} sent a contact request", contactForm.Message).ConfigureAwait(false);
 
-            TempData["Success"] = "FOrms was submitted.";
+            TempData["Success"] = "Forms was submitted.";
         }
         else
         {
             TempData["ErrorMessage"] = "Form was not submitted.";
         }
-        return CurrentUmbracoPage();
+        return LocalRedirect("/contact");
 
     }
 }

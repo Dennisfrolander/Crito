@@ -31,6 +31,15 @@
         .ChildrenOfType("projectItemPage")
         .Where(x => x.IsVisible())
         .OrderByDescending(x => x.CreateDate).Take(4);
+        
+    
+	var serviceList = Umbraco.Content(Guid.Parse("4dc61606-3ad4-476f-93f2-38021fd7de3e"))
+    .ChildrenOfType("servicePageItem")
+    .Where(x => x.IsVisible())
+    .OrderByDescending(x => x.CreateDate).Take(4);
+
+
+
 
 }
 
@@ -38,6 +47,7 @@
 @await Html.PartialAsync("_BrandSection")
 @await Html.PartialAsync("_FeaturesSection")
 @await Html.PartialAsync("_AboutCompany")
+@await Html.PartialAsync("_OurServices", serviceList)
 @await Html.PartialAsync("_WhyChooseUsSection")
 @await Html.PartialAsync("_ProjectSection", projectList)
 @await Html.PartialAsync("team/_teamMemberSection", memberList)
