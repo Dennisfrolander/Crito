@@ -3,7 +3,6 @@
 
 
 ## Hur man startar programmet:
-***Ändra connectionstrings i appsettings.json*** 
 
 ```"Login Inforamtion": {
     "Username": "Dennis@domain.com",
