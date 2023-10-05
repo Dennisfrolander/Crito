@@ -7,7 +7,7 @@ Du kan spara ner information med hjälp av EFC. Det som skrivs in i subscribe oc
 
 
 ## Sökfunktion
-Det finns en sökfunktion på News där användarna kan enkelt söka efter specifika ord eller fraser och få snabba och exakta resultat.
+Det finns en sökfunktion på News där användarna kan enkelt söka efter specifika ord och få snabba och exakta resultat.
 
 ## Hur man startar programmet:
 
