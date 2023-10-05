@@ -20,6 +20,3 @@ Det finns en sökfunktion på News där användarna kan enkelt söka efter speci
   ```
   
   ***Se till att du lagt till en connection mellan sqlite och din lokaladatabas som finns i Models > Contexts > Databases (IdentityDatabase / MainDb).***
-
-
-***Om programmet skulle visa error första gången du startar så starta om det bara så funkar det sen.***
