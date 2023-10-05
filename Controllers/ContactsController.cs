@@ -43,7 +43,7 @@ public class ContactsController : SurfaceController
         {
             TempData["ErrorMessage"] = "Form was not submitted.";
         }
-        return LocalRedirect("/contact");
+        return LocalRedirect("/contacts");
 
     }
 }
